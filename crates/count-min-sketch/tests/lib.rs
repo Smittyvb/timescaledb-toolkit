@@ -22,6 +22,7 @@ fn subtract_is_inverse_of_add() {
 }
 
 #[test]
+#[cfg(not(miri))] // takes too long
 fn add_repeated() {
     let mut cms = CountMinSketch::with_dim(2, 2);
     for _ in 0..100_000 {
@@ -31,6 +32,7 @@ fn add_repeated() {
 }
 
 #[test]
+#[cfg(not(miri))] // takes too long
 fn add_repeated_with_collisions() {
     // if sketch has width = 2 and we add 3 items, then we
     // are guaranteed that we will have at least one hash
