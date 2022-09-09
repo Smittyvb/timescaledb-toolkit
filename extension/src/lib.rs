@@ -30,6 +30,7 @@ mod stabilization_info;
 mod raw;
 mod datum_utils;
 mod pg_any_element;
+mod duration;
 
 #[cfg(any(test, feature = "pg_test"))]
 mod aggregate_builder_tests;
