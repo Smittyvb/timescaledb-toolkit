@@ -1,3 +1,8 @@
 [build]
 # Postgres symbols won't ve available until runtime
 rustflags = ["-C", "link-args=-Wl,-undefined,dynamic_lookup"]
+
+[target.x86_64-unknown-linux-gnu]
+# LLD is much faster than GNU ld for linking Toolkit
+linker = "clang"
+rustflags = ["-C", "link-arg=-fuse-ld=lld"] # rustc can handle multiple linker arguments
